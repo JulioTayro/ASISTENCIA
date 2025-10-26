@@ -1,0 +1,49 @@
+<div class="card">
+    <div class="card-header">
+      Listado de Empleados
+      <nav class="navbar bg-body-tertiary">
+          <form class="container-fluid justify-content-start">
+            <button class="btn btn-outline-success me-2" (click)="redirecTo('asistencias')" type="button">Lista de asistencia</button>
+            <button class="btn btn-outline-success me-2" (click)="redirecTo('asistencias-hoy')" type="button">Asistencias de Hoy</button>
+          </form>
+        </nav>
+    </div>
+    <div class="card-body">
+      <button type="button" (click)="onNavigateCrearEmpleado()" class="btn btn-primary">Nuevo Empleado</button> 
+      <hr />
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" [(ngModel)]="filtroNombre" name="search" placeholder="Buscar empleado" aria-label="Search"/>
+      </form>
+      <hr />
+        <table class="table">
+            <thead>
+              <tr class="table-dark">
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Fecha Ingreso</th>
+                <th scope="col">DNI</th>
+                <th scope="col">Departamento</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+                @for(item of Filtros; track $index){
+                    <tr class="table-secondary">
+                        <th scope="row">{{item.id}}</th>
+                        <th>{{item.nombre}}</th>
+                        <td>{{item.apellido}}</td>
+                        <td>{{item.correo}}</td>
+                        <td>{{item.telefono}}</td>
+                        <td>{{item.fechaIngreso}}</td>
+                        <td>{{item.dni}}</td>
+                        <td>{{item.departamento.nombre}}</td>
+                        <td><button type="button" (click)="onNavigateEditEmpleado(item.id)" class="btn btn-primary">Editar</button></td>
+                      </tr>
+                }
+            </tbody>
+          </table>
+    </div>
+  </div>

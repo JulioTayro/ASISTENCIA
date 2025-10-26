@@ -1,0 +1,34 @@
+<div class="card text-center">
+    <div class="card-header">
+      {{titulo}}
+    </div>
+    <div class="card-body">
+        <label for="text-body-secondary" id="txtnombre" class="form-label">Nombre</label>
+        <input type="text" id="txtnombre" [(ngModel)]="nombre" class="form-control">
+        
+        <label for="text-body-secondary" id="txtapellido" class="form-label">Apellido</label>
+        <input type="text" id="txtapellido" [(ngModel)]="apellido" class="form-control">
+
+        <label for="text-body-secondary" id="txtcorreo" class="form-label">Correo</label>
+        <input type="email" id="txtcorreo" [(ngModel)]="correo" class="form-control">
+        
+        <label for="text-body-secondary" id="txttelefono" class="form-label">Telefono</label>
+        <input type="text" id="txttelefono" [(ngModel)]="telefono" class="form-control">    
+        
+        <label for="text-body-secondary" id="txtfecha" class="form-label">Fecha de Ingreso</label>
+        <input type="date" id="txtfecha" [(ngModel)]="fechaIngreso" class="form-control">
+        
+        <label for="text-body-secondary" id="txtdni" class="form-label">DNI</label>
+        <input type="text" id="txtdni" [(ngModel)]="dni" class="form-control">
+        <label for="text-body-secondary" id="txtdepartamento" class="form-label">Departamento</label>
+        <select [(ngModel)]="departamento.id" name="departamento" required class="form-select">
+            <option value="0" disabled selected>-- Selecciona un departamento --</option>
+            <option *ngFor="let d of departamentos" [value]="d.id">{{ d.nombre }}</option>
+          </select>
+          <br/>
+    </div>
+    <button type="button" (click)="registrarEmpleado()" class="btn btn-primary">Guardar Datos</button>
+    <div class="card-footer text-body-secondary">
+      <hr>
+    </div>
+  </div>

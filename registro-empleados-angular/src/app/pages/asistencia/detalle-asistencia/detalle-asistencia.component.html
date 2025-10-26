@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-header">
+      Registrar asistencia
+    </div>
+    <div class="card-body">
+
+        <div class="form-floating mb-3">
+            <input type="email" [(ngModel)]="asisFecha" readonly class="form-control" id="floatingInput txtfecha" placeholder="name@example.com">
+            <label for="floatingInput txtfecha">Fecha</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="email" [(ngModel)]="asisEntrada" readonly class="form-control" id="floatingInput txtingreso" placeholder="name@example.com">
+            <label for="floatingInput txtingreso">Hora de Ingreso</label>
+        </div> 
+        <div class="form-floating mb-3">
+            <input type="email" [(ngModel)]="asisSalida" readonly class="form-control" id="floatingInput txtsalida" placeholder="name@example.com">
+            <label for="floatingInput txtsalida">Hora de Salida</label>
+        </div> 
+        <select [(ngModel)]="asisEmpleado.id" name="empleado" required class="form-select">
+            <option value="0" disabled selected>--Personal--</option>
+            <option *ngFor="let e of empleados" [value]="e.id">{{e.nombre+' '+ e.apellido}}</option>
+          </select>
+          <button type="button" (click)="registrarIngreso()" class="btn btn-primary">Registrar</button>
+          <br/>
+    
+    </div>
+  </div>
